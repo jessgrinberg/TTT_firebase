@@ -14,10 +14,14 @@ function TictacController($firebaseObject, $index){ //constructor functin that b
     self.clickYou = clickYou;
     self.playerX = true;
     self.playerO = false;
+
     self.win = false;
     self.winner = winner;
-    
 
+    self.board.message = self.winner;
+    self.clearGrid = clearGrid;
+    self.appearGame = appearGame;
+    self.appear = false;
 
 
     function getBoard(){
@@ -98,9 +102,11 @@ console.log(self.win)
         ((self.board.boxes[2].p1owns == "X") && (self.board.boxes[4].p1owns == "X") && (self.board.boxes[6].p1owns == "X")) 
       ) { 
           console.log("player one wins");
-          self.board.$save();
+          self.message = " Player One Wins !";
+ 
+          // self.board.$save();
           self.win = true;
-          // self.message = self.newName + " Wins !";
+       
           
     //check for a winning combination for player2("0")      
     } else if (
@@ -114,18 +120,48 @@ console.log(self.win)
         ((self.board.boxes[2].p1owns == "O") && (self.board.boxes[4].p1owns == "O") && (self.board.boxes[6].p1owns == "O")) 
       ) {
           console.log("player two wins");
+          self.message =  " Player Two Wins ! ";
+
           self.board.$save();
           self.win = true;
-          // self.message = self.newName2 + " Wins !";
+         
 
     //once counter reached 8 and no one won, tie!  
     } else if (self.board.counter === 9) {
            console.log("It's a Tie!");
+           self.message =  " Tie !";
            self.board.$save();
-           // self.message = "It's a Tie!";
            // alert('To start a new game, hit reset!');
-
       }
   }
+
+    function clearGrid($index) {
+      // self.buttons.splice({active: false, display: ""});
+      self.board.counter = 0;
+      self.playerX = true;
+      self.playerO = false;
+      self.win = false;
+      self.message = "";
+      self.board.boxes = [
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""},
+        {active: false, p1owns:""}]; 
+      self.board.$save();
+
+      // self.counter = 0;
+      // console.log(self.clearGrid);
+     //self.buttons[0],1
+  }
+
+      function appearGame(){
+      self.appear = !self.appear;
+      }
+
 
 }
