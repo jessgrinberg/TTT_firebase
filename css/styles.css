@@ -1,3 +1,10 @@
+html {
+  box-sizing: border-box;
+}
+ * {
+  box-sizing: inherit;
+}
+
 body {
   width: 310px;
 
@@ -6,17 +13,32 @@ body {
 
   }
 
-	.boxes {
+/*	.boxes {
   height: 100px;
   width: 100px;
   border: 1px solid black;
   float: left;
-}
-	*.red {
-	background-color: red;
+}*/
 
+
+.redDot{
+  background-color: #CF0000;
 }
 
-  *.blue {
-  background-color: blue;
+
+.blueDot{  
+  background: #010163;
+}
+
+.grid{
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+.boxes{
+  width: 100px;
+  height: 100px;
+  border: 3px solid gray;
+  float: left;
+  border-radius: 50%;
 }

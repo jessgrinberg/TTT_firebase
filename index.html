@@ -14,7 +14,7 @@
    <body ng-controller="TictacController as tictacCtrl">
        <div class="clearfix">
            <div class="boxes" 
-           ng-class="{red: box.p1owns == 'X', blue: box.p1owns == 'O' }" 
+           ng-class="{blueDot: box.p1owns == 'X', redDot: box.p1owns == 'O' }" 
            ng-click="tictacCtrl.clickYou($index)" 
            ng-repeat="box in tictacCtrl.board.boxes track by $index">
                    
