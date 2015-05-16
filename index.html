@@ -40,7 +40,7 @@
              ng-repeat="box in tictacCtrl.board.boxes track by $index">
          </div>        
     <h2>
-        <div id="displayResult">{{ tictacCtrl.message }}</div>
+        <div id="displayResult">{{ tictacCtrl.board.message }}</div>
      </div>
         <div class="reset"> {{"Reset"}}
         <button class="reset" ng-click="tictacCtrl.clearGrid($index)"></button>
