@@ -33,6 +33,25 @@
         <p ng-show="tictacCtrl.appear">{{"Let's Play!"}}</p>
     </h2>
 
+
+    <div id="playerOneName" ng-repeat="person1 in tictacCtrl.names">Welcome {{ person1.board }}</div>
+
+
+    <input class="text-box" type="text" placeholder="Enter Name player 1" ng-model="tictacCtrl.newName">
+    <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button>
+
+    <!-- <div id="playerOneName" ng-repeat="person2 in tictacCtrl.names2">Welcome {{ person2 }}</div>
+    <input class="text-box" type="text" placeholder="Enter Name player 2" ng-model="tictacCtrl.newName2">
+    <button class="boxName" ng-click="tictacCtrl.addNames2()">Add Name Player Two</button> -->
+
+<!-- <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button> -->
+<!-- <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button>
+<input class="text-box" type="text" placeholder="Enter Name player 1" ng-model="tictacCtrl.newName"> -->
+<!-- <input type="submit" class="btn btn-add" value="+">
+</form> -->
+<!-- 
+<div id="playerOneName" ng-repeat="person1 in tictacCtrl.names">Welcome {{ person1 }}</div> -->
+
     <div class="clearfix">
         <div class="boxes" 
              ng-class="{blueDot: box.p1owns == 'X', redDot: box.p1owns == 'O' }" 
@@ -40,6 +59,7 @@
              ng-repeat="box in tictacCtrl.board.boxes track by $index">
          </div>        
     <h2>
+        <div id="displayTurn">{{ tictacCtrl.board.turn }}</div>
         <div id="displayResult">{{ tictacCtrl.board.message }}</div>
      </div>
         <div class="reset"> {{"Reset"}}
