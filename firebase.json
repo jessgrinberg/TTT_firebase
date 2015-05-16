@@ -1,0 +1,9 @@
+{
+  "firebase": "color-button",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

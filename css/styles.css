@@ -1,0 +1,22 @@
+body {
+  width: 310px;
+
+  margin-left: 500px;
+
+
+  }
+
+	.boxes {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  float: left;
+}
+	*.red {
+	background-color: red;
+
+}
+
+  *.blue {
+  background-color: blue;
+}
