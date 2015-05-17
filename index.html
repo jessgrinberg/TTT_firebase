@@ -36,11 +36,11 @@
 
     <div id="score"> 
     <div id="playerOneName" ng-repeat="person1 in tictacCtrl.names">Welcome {{ person1 }}</div>
-    <input class="text-box" type="text" placeholder="Enter Name player 1" ng-model="tictacCtrl.newName">
+    <input class="text-box" type="text" placeholder="Enter Name player 1" ng-model="tictacCtrl.board.newName">
     <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button>
 
     <div id="playerOneName" ng-repeat="person2 in tictacCtrl.names2">& {{ person2 }}</div>
-    <input class="text-box" type="text" placeholder="Enter Name player 2" ng-model="tictacCtrl.newName2">
+    <input class="text-box" type="text" placeholder="Enter Name player 2" ng-model="tictacCtrl.board.newName2">
     <button class="boxName" ng-click="tictacCtrl.addNames2()">Add Name Player Two</button>
     </div>
 

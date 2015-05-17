@@ -39,6 +39,8 @@ function TictacController($firebaseObject, $index){ //constructor functin that b
 // console.log("running createBoxes")
 // console.log(self.board)
         self.board.message ="";
+        self.board.newName = "";
+        self.board.newName2 = "";
         self.board.counter = 0;
         self.board.boxes = [
         {active: false, p1owns:""},
@@ -114,7 +116,7 @@ console.log(self.win)
         ((self.board.boxes[2].p1owns == "X") && (self.board.boxes[4].p1owns == "X") && (self.board.boxes[6].p1owns == "X")) 
       ) { 
           console.log("player one wins");
-          self.board.message = self.newName + " Player One Wins !";
+          self.board.message = self.board.newName + " Player One Wins !";
           self.board.noClick = "";
           self.board.turn = "";
           self.board.$save(); 
@@ -135,7 +137,7 @@ console.log(self.win)
         ((self.board.boxes[2].p1owns == "O") && (self.board.boxes[4].p1owns == "O") && (self.board.boxes[6].p1owns == "O")) 
       ) {
           console.log("player two wins");
-          self.board.message = self.newName2 + " Player Two Wins ! ";
+          self.board.message = self.board.newName2 + " Player Two Wins ! ";
           self.board.noClick = "";
           self.board.turn = "";
           self.board.$save();
@@ -209,7 +211,7 @@ console.log(self.win)
     // }
     
     function addNames(){
-    self.names.push(self.newName);
+    self.names.push(self.board.newName);
     self.board.$save();
 
     // self.board.names.$add({player: self.newName});
@@ -221,7 +223,8 @@ console.log(self.win)
     self.addNames2 = addNames2;
 
     function addNames2(){
-    self.names2.push(self.newName2);
+    self.names2.push(self.board.newName2);
+    self.board.$save();
     }
 
     function appearGame(){
