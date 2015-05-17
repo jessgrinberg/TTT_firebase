@@ -24,6 +24,7 @@ function TictacController($firebaseObject, $index){ //constructor functin that b
     self.appear = false;
 
     self.turn = "";
+    self.noClick = "";
 
 
     function getBoard(){
@@ -57,12 +58,16 @@ function TictacController($firebaseObject, $index){ //constructor functin that b
     function clickYou($index){
 
         if(self.win){
-        alert('To start a new game, hit reset!');
+
+        self.board.turn = "To start a new game, hit reset!";
+        self.board.message = "";
+        // alert('To start a new game, hit reset!');
         return
         } 
 
         if (self.board.boxes[$index].p1owns != "") {
-        alert("This button has already been clicked")
+        self.board.noClick = "This button has already been clicked"  
+        // alert("This button has already been clicked")
         }   
 
         else {
@@ -74,6 +79,7 @@ function TictacController($firebaseObject, $index){ //constructor functin that b
             self.board.counter ++;
             console.log(self.board.counter);
             self.board.turn = "player 2 turn";
+            self.board.noClick = "";
             self.board.$save(); 
             self.playerX = false ;   
             } else {
@@ -81,6 +87,7 @@ function TictacController($firebaseObject, $index){ //constructor functin that b
             console.log("O");
             self.board.boxes[$index].active[$index] = false;
             self.board.turn = "player 1 turn";
+            self.board.noClick = "";
             self.board.counter ++;
             console.log(self.board.counter);
             self.board.$save(); 
@@ -108,6 +115,8 @@ console.log(self.win)
       ) { 
           console.log("player one wins");
           self.board.message = self.newName + " Player One Wins !";
+          self.board.noClick = "";
+          self.board.turn = "";
           self.board.$save(); 
  
           // self.board.$save();
@@ -127,7 +136,8 @@ console.log(self.win)
       ) {
           console.log("player two wins");
           self.board.message = self.newName2 + " Player Two Wins ! ";
-
+          self.board.noClick = "";
+          self.board.turn = "";
           self.board.$save();
           self.win = true;
          
@@ -136,6 +146,8 @@ console.log(self.win)
     } else if (self.board.counter === 9) {
            console.log("It's a Tie!");
            self.board.message =  " Tie !";
+           self.board.noClick = "";
+           self.board.turn = "";
            self.board.$save();
            // alert('To start a new game, hit reset!');
       }
@@ -204,13 +216,13 @@ console.log(self.win)
     }
 
 
-    // self.names2 = [];
-    // self.newName2 = " ";
-    // self.addNames2 = addNames2;
+    self.names2 = [];
+    self.newName2 = " ";
+    self.addNames2 = addNames2;
 
-    // function addNames2(){
-    // self.names2.push(self.newName2);
-    // }
+    function addNames2(){
+    self.names2.push(self.newName2);
+    }
 
     function appearGame(){
     self.appear = !self.appear;

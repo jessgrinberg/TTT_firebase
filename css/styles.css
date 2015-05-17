@@ -1,17 +1,16 @@
 html {
   box-sizing: border-box;
 }
- {
+ * {
   box-sizing: inherit;
 }
 
 body {
-  width: 310px;
+  width: 300px;
 
-  margin-left: 500px;
-
-
+margin: 0 auto;
   }
+
 
 /*	.boxes {
   height: 100px;
@@ -153,16 +152,16 @@ color:#CF0000;
   border-radius: 50%;
 }*/
 
-.box:hover{
+button:hover {
   background-color: lightgrey;
 }
 
-#reset{
+.reset{
   text-align: center;
 }
 
 #dots{
-    position: relative;
+  position: relative;
   overflow:hidden;
   display: inline-flex;
   left: 525px;
@@ -223,12 +222,12 @@ color:#CF0000;
   font-family: Didot;
 }
 
-#score1 {
+#playerOneName {
   float: left;
 /*  text-align: center;*/
 }
 
-#score2 {
+#playerTwoName  {
   float: right;
 /*  text-align: center;*/
 }

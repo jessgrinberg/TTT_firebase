@@ -24,25 +24,25 @@
             <div id="redSmallDotRight"></div>
         </header>
     <hr>
-    <h3>
+    <h4>
         <div id="playerPick">
-        <span class="pickBlue">Player One is Blue</span> | <span class="pickRed">Player Two is Red</span>
-    </h3>
+        <span class="pickBlue">Player One is Blue</span> |
+        <span class="pickRed">Player Two is Red</span>
+    </h4>
         </div>
     <h2>
         <p ng-show="tictacCtrl.appear">{{"Let's Play!"}}</p>
     </h2>
 
-
-    <div id="playerOneName" ng-repeat="person1 in tictacCtrl.names">Welcome {{ person1.board }}</div>
-
-
+    <div id="score"> 
+    <div id="playerOneName" ng-repeat="person1 in tictacCtrl.names">Welcome {{ person1 }}</div>
     <input class="text-box" type="text" placeholder="Enter Name player 1" ng-model="tictacCtrl.newName">
     <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button>
 
-    <!-- <div id="playerOneName" ng-repeat="person2 in tictacCtrl.names2">Welcome {{ person2 }}</div>
+    <div id="playerOneName" ng-repeat="person2 in tictacCtrl.names2">& {{ person2 }}</div>
     <input class="text-box" type="text" placeholder="Enter Name player 2" ng-model="tictacCtrl.newName2">
-    <button class="boxName" ng-click="tictacCtrl.addNames2()">Add Name Player Two</button> -->
+    <button class="boxName" ng-click="tictacCtrl.addNames2()">Add Name Player Two</button>
+    </div>
 
 <!-- <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button> -->
 <!-- <button class="boxName" ng-click="tictacCtrl.addNames()">Add Name Player One</button>
@@ -60,9 +60,11 @@
          </div>        
     <h2>
         <div id="displayTurn">{{ tictacCtrl.board.turn }}</div>
+        <div id="noClick">{{ tictacCtrl.board.noClick }}</div>
         <div id="displayResult">{{ tictacCtrl.board.message }}</div>
      </div>
-        <div class="reset"> {{"Reset"}}
+        <h2><div class="reset"> {{"Reset"}}
+        <br>
         <button class="reset" ng-click="tictacCtrl.clearGrid($index)"></button>
     </h2>
 
